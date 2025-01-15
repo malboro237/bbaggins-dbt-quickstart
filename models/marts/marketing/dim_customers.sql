@@ -1,12 +1,12 @@
 with customers as (
 
-    select * from {{ ref("stg_jaffle_shop_customer")}}
+    select * from {{ ref("stg_jaffle_shop_customers")}}
 
 ),
 
 orders as (
 
-    select * from {{ ref ("stg_jaffle_shop_orders")}}
+    select * from {{ ref ("fct_orders")}}
 
 ),
 

@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+    - name: jaffle_shop
+      description: This is a replica of the Postgres database used by our app
+      database: raw
+      schema: jaffle_shop
+      freshness:
+        warn_after: {count: 100, period: hour}  # Avertissement si les données sont plus anciennes que 1 jour
+        error_after: {count: 2, period: day}   # Erreur si les données sont plus anciennes que 2 jours
+            
+      tables:
+          - name: customers
+            description: One record per customer.
+            freshness: null
+            
+          - name: orders
+            description: One record per order. Includes cancelled and deleted orders.
+            
